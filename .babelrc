@@ -1,0 +1,21 @@
+{
+  "presets": [
+    "babel-preset-philpl/without-extras"
+  ],
+  "ignore": [
+    "/node_modules/"
+  ],
+  "plugins": [],
+  env: {
+    cjs: {
+      plugins: [
+        "transform-es2015-modules-commonjs"
+      ]
+    },
+    es: {
+      plugins: [
+        "./scripts/babel-use-lodash-es"
+      ]
+    }
+  }
+}

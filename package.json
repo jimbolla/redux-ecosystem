@@ -1,0 +1,86 @@
+{
+  "name": "redux-fluorine",
+  "version": "1.1.0",
+  "main": "lib/index.js",
+  "jsnext:main": "es/index.js",
+  "files": [
+    "lib",
+    "es",
+    "dist",
+    "src",
+    "README.md",
+    "LICENSE.md"
+  ],
+  "description": "A Redux enhancer to manage groups of actions as observables (agendas)",
+  "scripts": {
+    "test": "BABEL_ENV=cjs mocha --compilers js:babel-register --recursive",
+    "test:watch": "npm test -- --watch",
+    "test:cov": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
+    "lint": "eslint src",
+    "clean": "rm -rf coverage lib es dist",
+    "build:cjs": "BABEL_ENV=cjs babel src --out-dir lib",
+    "build:es": "babel src --out-dir es",
+    "build:umd": "cross-env NODE_ENV=development webpack src/index.js dist/redux-fluorine.js",
+    "build:umd:min": "cross-env NODE_ENV=production webpack src/index.js dist/redux-fluorine.min.js",
+    "build": "npm run build:cjs && npm run build:es && npm run build:umd && npm run build:umd:min",
+    "prepublish": "npm run clean && npm run build",
+    "preversion": "npm run clean && npm run test",
+    "version": "npm run build",
+    "postversion": "git push && git push --tags",
+    "prebook": "gitbook install ./docs",
+    "book": "gitbook build ./docs",
+    "book:serve": "gitbook serve ./docs"
+  },
+  "author": "Phil Plückthun <phil@plckthn.me> (https://github.com/philpl)",
+  "bugs": {
+    "url": "https://github.com/philpl/redux-fluorine/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/philpl/redux-fluorine.git"
+  },
+  "license": "CC0-1.0",
+  "keywords": [
+    "redux",
+    "fluorine",
+    "observable",
+    "rx",
+    "state",
+    "side effect",
+    "thunk",
+    "cancel",
+    "agenda"
+  ],
+  "dependencies": {
+    "babel-core": "^6.18.2",
+    "symbol-observable": "^1.0.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.16.0",
+    "babel-eslint": "^7.0.0",
+    "babel-loader": "^6.2.5",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.16.0",
+    "babel-preset-philpl": "^0.5.0",
+    "babel-register": "^6.16.0",
+    "coveralls": "^2.11.11",
+    "cross-env": "^3.0.0",
+    "eslint": "^3.6.1",
+    "eslint-config-excellence": "^1.17.0",
+    "eslint-plugin-mocha": "^4.5.1",
+    "eslint-plugin-react": "^6.6.0",
+    "expect": "^1.20.2",
+    "gitbook-cli": "^2.1.2",
+    "mocha": "^3.1.0",
+    "nyc": "^10.0.0",
+    "redux": "^3.6.0",
+    "rxjs": "^5.0.0-beta.12",
+    "webpack": "^2.1.0-beta.25"
+  },
+  "peerDependencies": {
+    "redux": "3.*"
+  },
+  "engines": {
+    "npm": ">= 2.0.0",
+    "node": ">= 0.12.0"
+  }
+}
