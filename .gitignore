@@ -1,0 +1,10 @@
+lib
+dist
+tmp
+.settings
+.vscode
+.idea
+typings
+node_modules
+npm-debug.log
+tsd-debug.log
