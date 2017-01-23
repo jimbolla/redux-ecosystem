@@ -1,0 +1,49 @@
+{
+  "name": "redux-persist-migrate",
+  "version": "4.0.1",
+  "description": "migrate your redux state",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "standard",
+    "build": "babel src --out-dir lib",
+    "build:watch": "npm run build ./src -- -watch",
+    "clean": "rimraf lib dist",
+    "prepublish": "npm run clean && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wildlifela/redux-persist-migrate.git"
+  },
+  "homepage": "https://github.com/wildlifela/redux-persist-migrate",
+  "author": "rt2zz <zack@root-two.com>",
+  "license": "MIT",
+  "dependencies": {},
+  "keywords": [
+    "redux",
+    "redux-persist",
+    "redux-persist-migrate",
+    "redux-migrate"
+  ],
+  "peerDependencies": {
+    "redux-persist": ">=3.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.7.7",
+    "babel-eslint": "^6.0.4",
+    "babel-preset-es2015": "^6.6.0",
+    "babel-preset-stage-2": "^6.5.0",
+    "babel-register": "^6.7.2",
+    "rimraf": "^2.5.2",
+    "standard": "^6.0.8"
+  },
+  "files": [
+    "lib",
+    "src"
+  ],
+  "standard": {
+    "parser": "babel-eslint",
+    "ignore": [
+      "/lib"
+    ]
+  }
+}
